@@ -66,6 +66,7 @@ int main(void)
 			} else {
 				//(void)unix_to_iso8601(gpsdata->fix.time, scr, sizeof(scr));
 				//fprintf(stdout, "%s\t%d\t%d\t\n\n", scr, gpsdata->fix.latitude, gpsdata->fix.longitude);
+				printf("gps_read passed\n");
 				for(int i = 0; i < MAXCHANNELS; i++) {
 
 					usedflags[i] = false;
