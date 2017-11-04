@@ -67,8 +67,8 @@ int main(void)
 				//(void)unix_to_iso8601(gpsdata->fix.time, scr, sizeof(scr));
 				//fprintf(stdout, "%s\t%d\t%d\t\n\n", scr, gpsdata->fix.latitude, gpsdata->fix.longitude);
 				if (gpsdata->set) {
-					
-					printf("gps_read passed\n");
+
+					printf("gps_set passed\n");
 					for(int i = 0; i < MAXCHANNELS; i++) {
 
 						usedflags[i] = false;
@@ -87,6 +87,8 @@ int main(void)
 							}
 						}
 					}
+				} else {
+					printf("gps_set failed");
 				}
 				
 			}
