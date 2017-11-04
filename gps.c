@@ -53,24 +53,24 @@ int main(void)
 	} else {
 		printf("gps opened\n");
 	}
-	if(source.device != NULL) {
-		flags |= WATCH_DEVICE;
-	}
 	
-	gps_stream(gpsdata, flags, source.device);
+	
+	gps_stream(gpsdata, WATCH_ENABLE | WATCH_JSON, NULL);
 	
 	while(1) {
 		if(!gps_waiting(gpsdata, 5000000)) {
 			printf("timed out\n");
 		} else {
 			if(gps_read(gpsdata) == -1 || gps_read(gpsdata) == 0) {
-				printf("not reading");
+				printf("gps_read failed\n");
 			} else {
 				//(void)unix_to_iso8601(gpsdata->fix.time, scr, sizeof(scr));
 				//fprintf(stdout, "%s\t%d\t%d\t\n\n", scr, gpsdata->fix.latitude, gpsdata->fix.longitude);
 				for(int i = 0; i < MAXCHANNELS; i++) {
+
 					usedflags[i] = false;
 					for(int j = 0; j < gpsdata->satellites_used; j++) {
+						printf("found satellites\n");
 						if(gpsdata->used[i]) {
 							usedflags[i] = true;
 						}
