@@ -25,6 +25,7 @@ int main(void)
 	readGpsData(gpsdata);
 
 	free(gpsdata);
+	gps_close(gpsdata);
 	return 0;
 }
 
