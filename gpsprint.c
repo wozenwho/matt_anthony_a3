@@ -18,7 +18,7 @@ void printGpsData(struct gps_data_t * gpsdata) {
 		fprintf (stdout, "Latitude: %s %c; \n\n", deg_to_str(deg_type, fabs (gpsdata->fix.longitude)),
 		(gpsdata->fix.longitude < 0) ? 'E' : 'W');
 */
-		fprintf(stdout, "%d   %d\n\n", gpsdata->fix.latitude , gpsdata->fix.longitude );
+		fprintf(stdout, "%f   %f\n\n", gpsdata->fix.latitude , gpsdata->fix.longitude );
 		fflush (stdout);
 
 		for(int i = 0; i < MAXCHANNELS; i++) {
@@ -55,17 +55,17 @@ void printGpsData(struct gps_data_t * gpsdata) {
 					
 					if (gpsdata->fix.mode == MODE_2D) {
 						if (usedflags[l]) {
-							fprintf(stdout, "PRN: %3d Elevation: N/A Azimuth: %03d SNR: %02d Used: Y\n", gpsdata->PRN[l], gpsdata->azimuth[l], gpsdata->ss[l]);
+							fprintf(stdout, "PRN: %3d Elevation: N/A Azimuth: %03d SNR: %02f Used: Y\n", gpsdata->PRN[l], gpsdata->azimuth[l], gpsdata->ss[l]);
 						} else {
-							fprintf(stdout, "PRN: %3d Elevation: N/A Azimuth: %03d SNR: %02d Used: N\n", gpsdata->PRN[l], gpsdata->azimuth[l], gpsdata->ss[l]);
+							fprintf(stdout, "PRN: %3d Elevation: N/A Azimuth: %03d SNR: %02f Used: N\n", gpsdata->PRN[l], gpsdata->azimuth[l], gpsdata->ss[l]);
 						}
 						
 						
 					} else {
 						if (usedflags[l]) {
-							fprintf(stdout, "PRN: %3d Elevation: %02d Azimuth: %03d SNR: %02d Used: Y\n", gpsdata->PRN[l], gpsdata->elevation[l], gpsdata->azimuth[l], gpsdata->ss[l]);
+							fprintf(stdout, "PRN: %3d Elevation: %02d Azimuth: %03d SNR: %02f Used: Y\n", gpsdata->PRN[l], gpsdata->elevation[l], gpsdata->azimuth[l], gpsdata->ss[l]);
 						} else {
-							fprintf(stdout, "PRN: %3d Elevation: %02d Azimuth: %03d SNR: %02d Used: N\n", gpsdata->PRN[l], gpsdata->elevation[l], gpsdata->azimuth[l], gpsdata->ss[l]);
+							fprintf(stdout, "PRN: %3d Elevation: %02d Azimuth: %03d SNR: %02f Used: N\n", gpsdata->PRN[l], gpsdata->elevation[l], gpsdata->azimuth[l], gpsdata->ss[l]);
 						}
 
 					}
