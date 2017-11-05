@@ -25,20 +25,21 @@ void printGpsData(struct gps_data_t * gpsdata) {
 
 			usedflags[i] = false;
 			for(int j = 0; j < gpsdata->satellites_used; j++) {
-				/*
+				
 				if(gpsdata->skyview[i].used) {
 					usedflags[i] = true;
 				}
-				*/
+				/*
 				if(gpsdata->used[i]) {
 					usedflags[i] = true;
 				}
+				*/
 
 			}
 			if(gpsdata->satellites_visible != 0) {
 				for(int l = 0; l < MAX_POSSIBLE_SATS; l++) {
 					if(l < gpsdata->satellites_visible) {
-						/*
+						
 						if (gpsdata->fix.mode == MODE_2D) {
 							fprintf(stdout, "PRN: %3d Elevation: %02d Azimuth: %03d SNR: %02d Used: %c\n", gpsdata->skyview[l].PRN, gpsdata->skyview[l].elevation, gpsdata->skyview[l].azimuth, gpsdata->skyview[l].ss, usedflags[l] ? 'Y':'N');
 
@@ -46,14 +47,14 @@ void printGpsData(struct gps_data_t * gpsdata) {
 							fprintf(stdout, "PRN: %3d Elevation: N/A Azimuth: %03d SNR: %02d Used: %c\n", gpsdata->skyview[l].PRN, gpsdata->skyview[l].azimuth, gpsdata->skyview[l].ss, usedflags[l] ? 'Y':'N');
 
 						}
-						*/
+						/*
 						if (gpsdata->fix.mode == MODE_2D) {
 							fprintf(stdout, "PRN: %3d Elevation: %02d Azimuth: %03d SNR: %02d Used: %c\n", gpsdata->PRN[l], gpsdata->elevation[l], gpsdata->azimuth[l], gpsdata->ss[l], usedflags[l] ? 'Y':'N');
 
 						} else {
 							fprintf(stdout, "PRN: %3d Elevation: N/A Azimuth: %03d SNR: %02d Used: %c\n", gpsdata->PRN[l], gpsdata->elevation[l], gpsdata->azimuth[l], gpsdata->ss[l], usedflags[l] ? 'Y':'N');
 						}
-
+						*/
 						
 					}
 				}
