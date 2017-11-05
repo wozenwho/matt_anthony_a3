@@ -74,7 +74,7 @@ int main(void)
 						usedflags[i] = false;
 						for(int j = 0; j < gpsdata->satellites_used; j++) {
 							printf("found satellites\n");
-							if(gpsdata->used[i]) {
+							if(gpsdata->skyview[i].used) {
 								usedflags[i] = true;
 							}
 						}
