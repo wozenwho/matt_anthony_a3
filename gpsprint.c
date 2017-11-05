@@ -2,7 +2,7 @@
 #include "gpsprint.h"
 
 
-void printGpsData(gps_data_t * gpsdata) {
+void printGpsData(struct gps_data_t * gpsdata) {
 
 	printf("gps_set passed\n");
 	for(int i = 0; i < MAXCHANNELS; i++) {

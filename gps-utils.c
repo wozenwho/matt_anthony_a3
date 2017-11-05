@@ -4,7 +4,7 @@
 
 
 
-void readGpsData(gps_data_t * gpsdata) {
+void readGpsData(struct gps_data_t * gpsdata) {
 
 	while(1) {
 		if(!gps_waiting(gpsdata, 5000000)) {
