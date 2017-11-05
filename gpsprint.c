@@ -25,9 +25,15 @@ void printGpsData(struct gps_data_t * gpsdata) {
 
 			usedflags[i] = false;
 			for(int j = 0; j < gpsdata->satellites_used; j++) {
+				/*
 				if(gpsdata->skyview[i].used) {
 					usedflags[i] = true;
 				}
+				*/
+				if(gpsdata->used[i]) {
+					usedflags[i] = true;
+				}
+
 			}
 			if(gpsdata->satellites_visible != 0) {
 				for(int l = 0; l < MAX_POSSIBLE_SATS; l++) {
