@@ -54,10 +54,19 @@ void printGpsData(struct gps_data_t * gpsdata) {
 					*/
 					
 					if (gpsdata->fix.mode == MODE_2D) {
-						fprintf(stdout, "PRN: %3d Elevation: N/A Azimuth: %03d SNR: %02d Used: %c\n", gpsdata->PRN[l], gpsdata->azimuth[l], gpsdata->ss[l], (usedflags[l] ? 'Y':'N'));
+						if (usedflags[l]) {
+							fprintf(stdout, "PRN: %3d Elevation: N/A Azimuth: %03d SNR: %02d Used: Y\n", gpsdata->PRN[l], gpsdata->azimuth[l], gpsdata->ss[l]);
+						} else {
+							fprintf(stdout, "PRN: %3d Elevation: N/A Azimuth: %03d SNR: %02d Used: N\n", gpsdata->PRN[l], gpsdata->azimuth[l], gpsdata->ss[l]);
+						}
+						
 						
 					} else {
-						fprintf(stdout, "PRN: %3d Elevation: %02d Azimuth: %03d SNR: %02d Used: %c\n", gpsdata->PRN[l], gpsdata->elevation[l], gpsdata->azimuth[l], gpsdata->ss[l], (usedflags[l] ? 'Y':'N'));
+						if (usedflags[l]) {
+							fprintf(stdout, "PRN: %3d Elevation: %02d Azimuth: %03d SNR: %02d Used: Y\n", gpsdata->PRN[l], gpsdata->elevation[l], gpsdata->azimuth[l], gpsdata->ss[l]);
+						} else {
+							fprintf(stdout, "PRN: %3d Elevation: %02d Azimuth: %03d SNR: %02d Used: N\n", gpsdata->PRN[l], gpsdata->elevation[l], gpsdata->azimuth[l], gpsdata->ss[l]);
+						}
 
 					}
 					
