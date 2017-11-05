@@ -16,10 +16,8 @@ int main(void)
 	source.device = NULL;
 
 	if(gps_open(source.server, source.port, gpsdata) == -1) {
-		printf("gps not opened\n");
-	} else {
-		printf("gps opened\n");
-	}
+		printf("gps_open failed\n");
+	} 
 	
 	
 	gps_stream(gpsdata, WATCH_ENABLE | WATCH_JSON, NULL);

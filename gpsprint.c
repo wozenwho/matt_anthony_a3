@@ -8,7 +8,7 @@ void printGpsData(struct gps_data_t * gpsdata) {
 	char scr[128];
 
 	(void)unix_to_iso8601(gpsdata->fix.time, scr, sizeof(scr));
-	fprintf(stdout, "%s\t", scr, gpsdata->fix.latitude, gpsdata->fix.longitude);
+	fprintf(stdout, "%s ", scr);
 	if (gpsdata->fix.mode >= MODE_2D && isnan (gpsdata->fix.latitude) == 0)
 	{
 		fprintf (stdout, "Latitude: %s %c; ", deg_to_str(deg_type, fabs (gpsdata->fix.latitude)),

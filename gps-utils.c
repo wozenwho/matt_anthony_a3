@@ -10,8 +10,8 @@ void readGpsData(struct gps_data_t * gpsdata) {
 		if(!gps_waiting(gpsdata, 5000000)) {
 			printf("timed out\n");
 		} else {
-			if(gps_read(gpsdata) == -1) {
-				printf("gps_read failed\n");
+			if(!validateGPS(gpsdata)) {
+				return;
 			} else {
 				
 				if (gpsdata->set) {
@@ -25,3 +25,18 @@ void readGpsData(struct gps_data_t * gpsdata) {
 		}
 	}
 }
+
+
+
+bool validateGPS(struct gps_data_t * gpsdata) {
+	if(gps_read(gpsdata) == -1) {
+		printf("gps_read failed\n");
+		return false;
+	} 
+	return true;
+}
+
+
+
+
+
