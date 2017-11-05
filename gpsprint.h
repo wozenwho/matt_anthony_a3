@@ -2,4 +2,4 @@
 
 #include <gps.h>
 
-void printGpsData(gps_data_t *);
+void printGpsData(struct gps_data_t *);
