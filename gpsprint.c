@@ -7,18 +7,18 @@ void printGpsData(struct gps_data_t * gpsdata) {
 	bool usedflags[MAXCHANNELS];
 	char scr[128];
 
-	(void)unix_to_iso8601(gpsdata->fix.time, scr, sizeof(scr));
-	fprintf(stdout, "%s ", scr);
+	
 	if (gpsdata->fix.mode >= MODE_2D && isnan (gpsdata->fix.latitude) == 0)
 	{
 		/*
-		fprintf (stdout, "Latitude: %s %c; ", deg_to_str(deg_type, fabs (gpsdata->fix.latitude)),
+		fprintf (stdout, "Latitude: %s %c; ", deg_to_str(deg_dd, fabs (gpsdata->fix.latitude)),
 		(gpsdata->fix.latitude < 0) ? 'S' : 'N');
 
-		fprintf (stdout, "Latitude: %s %c; \n\n", deg_to_str(deg_type, fabs (gpsdata->fix.longitude)),
+		fprintf (stdout, "Latitude: %s %c; \n\n", deg_to_str(deg_dd, fabs (gpsdata->fix.longitude)),
 		(gpsdata->fix.longitude < 0) ? 'E' : 'W');
-*/
-		fprintf(stdout, "%f   %f\n\n", gpsdata->fix.latitude , gpsdata->fix.longitude );
+		*/
+		(void)unix_to_iso8601(gpsdata->fix.time, scr, sizeof(scr));
+		fprintf(stdout, "\n%s  %f  %f\n", scr, gpsdata->fix.latitude, gpsdata->fix.longitude);
 		fflush (stdout);
 
 		for(int i = 0; i < MAXCHANNELS; i++) {
