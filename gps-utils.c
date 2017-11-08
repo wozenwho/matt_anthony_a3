@@ -6,9 +6,9 @@
 /*------------------------------------------------------------------------------------------------------------------
 --  FUNCTION:	readGpsData
 --
---  DATE:		November 3, 2017
+--  DATE:		November 2, 2017
 --
---  REVISIONS:
+--  REVISIONS:		none
 --
 --  DESIGNER:		Anthony Vu
 --
@@ -50,7 +50,7 @@ void readGpsData(struct gps_data_t * gpsdata) {
 /*------------------------------------------------------------------------------------------------------------------
 --  FUNCTION:	validateGPS
 --
---  DATE:		November 3, 2017
+--  DATE:		November 2, 2017
 --
 --  REVISIONS:  
 --

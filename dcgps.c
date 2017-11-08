@@ -9,7 +9,7 @@
 --
 --  DATE:		November 2, 2017
 --
---  REVISIONS:	(Date and Description)
+--  REVISIONS:	none
 --
 --  DESIGNER:	Matthew Shew, Anthony Vu
 --
@@ -31,9 +31,9 @@
 /*------------------------------------------------------------------------------------------------------------------
 --  FUNCTION:	main
 --
---  DATE:			October 15, 2017
+--  DATE:			November 2, 2017
 --
---  REVISIONS:
+--  REVISIONS:		none
 --
 --  DESIGNER:		Matthew Shew
 --
