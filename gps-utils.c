@@ -3,7 +3,6 @@
 #include "gpsprint.h"
 
 
-
 /*------------------------------------------------------------------------------------------------------------------
 --  FUNCTION:	readGpsData
 --
@@ -11,9 +10,9 @@
 --
 --  REVISIONS:
 --
---  DESIGNER:		
+--  DESIGNER:		Anthony Vu
 --
---  PROGRAMMER:		
+--  PROGRAMMER:		Anthony Vu
 --
 --  INTERFACE:		void readGpsData(struct gps_data_t * gpsdata)
 --						struct gps_data_t * gpsdata: The location and satellite info that was returned from the GPS dongle
@@ -23,7 +22,8 @@
 --
 --  NOTES:
 --  This function will continuously listen to the gps dongle for data and check the recieved data for error detection. Upon 
---  successful return from error detection the function will call a print function to print the gps info to the screen 
+--  successful return from error detection the function will call a print function to print the gps info to the screen otherwise
+--  upon unsuccesful error detection the program will teminate
 ----------------------------------------------------------------------------------------------------------------------*/
 void readGpsData(struct gps_data_t * gpsdata) {
 
@@ -54,9 +54,9 @@ void readGpsData(struct gps_data_t * gpsdata) {
 --
 --  REVISIONS:  
 --
---  DESIGNER:		
+--  DESIGNER:		Anthony Vu
 --
---  PROGRAMMER:		
+--  PROGRAMMER:		Anthony Vu
 --
 --  INTERFACE:		bool validateGPS(struct gps_data_t * gpsdata)
 --						struct gps_data_t * gpsdata: The location and satellite info that was returned from the GPS dongle
@@ -69,8 +69,9 @@ void readGpsData(struct gps_data_t * gpsdata) {
 --  This function is determines whether the gpsdata structure contains valid data and the gps dongle is recieving proper readings 
 ----------------------------------------------------------------------------------------------------------------------*/
 bool validateGPS(struct gps_data_t * gpsdata) {
-	if(gps_read(gpsdata) == -1) {
-		printf("gps_read failed\nterminating stream");
+	int error;
+	if((error = gps_read(gpsdata)) == -1) {
+		printf("gps_read failed.\nCode: %d\nError: %s\nterminating stream\n", error, gps_errstr(error));
 		return false;
 	}
 	return true;

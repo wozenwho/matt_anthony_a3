@@ -3,9 +3,9 @@
 
 
 /*------------------------------------------------------------------------------------------------------------------
---  FUNCTION: printGpsData
+--  FUNCTION: 	printGpsData
 --
---  DATE:			November 3, 2017
+--  DATE:		November 3, 2017
 --
 --  REVISIONS:		
 --
@@ -39,17 +39,13 @@ void printGpsData(struct gps_data_t * gpsdata) {
 		fprintf (stdout, "Latitude: %.6f %c; ", (gpsdata->fix.latitude < 0) ? gpsdata->fix.latitude * -1 : gpsdata->fix.latitude, (gpsdata->fix.latitude < 0) ? 'S' : 'N');
 
 		fprintf (stdout, "longitude: %.6f %c; \n\n", (gpsdata->fix.longitude < 0) ? gpsdata->fix.longitude * -1 : gpsdata->fix.longitude, (gpsdata->fix.longitude < 0) ? 'W' : 'E');
-		/*
-		printf("----------------------------------\n");
-		(void)unix_to_iso8601(gpsdata->fix.time, scr, sizeof(scr));
-		fprintf(stdout, "\n%s  %f  %f\n", scr, gpsdata->fix.latitude, gpsdata->fix.longitude);
-		*/
+		
 		fflush (stdout);
 	} 
 	else 
 	{
 		(void)unix_to_iso8601(gpsdata->fix.time, scr, sizeof(scr));
-		fprintf(stdout, "\n%s  n/a  n/a", scr);
+		fprintf(stdout, "\n%s  n/a  n/a\n", scr);
 	}
 
 
@@ -76,7 +72,7 @@ void printGpsData(struct gps_data_t * gpsdata) {
 						used = 'N';
 					}
 
-					if (gpsdata->fix.mode == MODE_2D) {
+					if (gpsdata->fix.mode <= MODE_2D) {
 						fprintf(stdout, "PRN: %3d Elevation: N/A Azimuth: %03d SNR: %02.0f Used: %c\n", gpsdata->PRN[l], gpsdata->azimuth[l], gpsdata->ss[l], used);
 					} else {
 						fprintf(stdout, "PRN: %3d Elevation: %02d Azimuth: %03d SNR: %02.0f Used: %c\n", gpsdata->PRN[l], gpsdata->elevation[l], gpsdata->azimuth[l], gpsdata->ss[l], used);						

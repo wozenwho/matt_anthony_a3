@@ -35,9 +35,9 @@
 --
 --  REVISIONS:
 --
---  DESIGNER:		
+--  DESIGNER:		Matthew Shew
 --
---  PROGRAMMER:		
+--  PROGRAMMER:		Matthew Shew
 --
 --  INTERFACE:		int main(void)
 --
@@ -52,6 +52,7 @@ int main(void)
 {
 	static struct fixsource_t source;
 	static struct gps_data_t *gpsdata;
+	int error;
 	gpsdata = malloc(sizeof(struct gps_data_t));
 	memset(gpsdata, 0, (sizeof(struct gps_data_t)));
 	
@@ -60,17 +61,15 @@ int main(void)
 	source.port = DEFAULT_GPSD_PORT;
 	source.device = NULL;
 
-	if(gps_open(source.server, source.port, gpsdata) == -1) {
-		printf("gps_open failed\n");
+	if((error = gps_open(source.server, source.port, gpsdata)) == -1) {
+		printf("gps_open failed.\nCode: %d\nError: %s\n", error, gps_errstr(error));
 	} 
-	
-	
 	gps_stream(gpsdata, WATCH_ENABLE | WATCH_JSON, NULL);
-
 	readGpsData(gpsdata);
-
-	free(gpsdata);
+	
+	gps_stream (gps_data, WATCH_DISABLE, NULL);
 	gps_close(gpsdata);
+	free(gpsdata);
 	return 0;
 }
 
