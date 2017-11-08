@@ -38,7 +38,7 @@ void printGpsData(struct gps_data_t * gpsdata) {
 		
 		fprintf (stdout, "Latitude: %.6f %c; ", (gpsdata->fix.latitude < 0) ? gpsdata->fix.latitude * -1 : gpsdata->fix.latitude, (gpsdata->fix.latitude < 0) ? 'S' : 'N');
 
-		fprintf (stdout, "longitude: %.6f %c; \n\n", (gpsdata->fix.longitude < 0) ? gpsdata->fix.longitude * -1 : gpsdata->fix.longitude, (gpsdata->fix.longitude < 0) ? 'E' : 'W');
+		fprintf (stdout, "longitude: %.6f %c; \n\n", (gpsdata->fix.longitude < 0) ? gpsdata->fix.longitude * -1 : gpsdata->fix.longitude, (gpsdata->fix.longitude < 0) ? 'W' : 'E');
 		/*
 		printf("----------------------------------\n");
 		(void)unix_to_iso8601(gpsdata->fix.time, scr, sizeof(scr));
