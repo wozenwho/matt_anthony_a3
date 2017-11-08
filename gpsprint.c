@@ -26,7 +26,7 @@ void printGpsData(struct gps_data_t * gpsdata) {
 
 	bool usedflags[MAXCHANNELS];
 	char scr[128];
-
+/*
 	
 	if (gpsdata->fix.mode >= MODE_2D && isnan (gpsdata->fix.latitude) == 0)
 	{
@@ -83,7 +83,7 @@ void printGpsData(struct gps_data_t * gpsdata) {
 			}
 		}
 		
-
+*/
 
 	
 }

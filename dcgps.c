@@ -67,7 +67,7 @@ int main(void)
 	gps_stream(gpsdata, WATCH_ENABLE | WATCH_JSON, NULL);
 	readGpsData(gpsdata);
 	
-	gps_stream (gps_data, WATCH_DISABLE, NULL);
+	gps_stream (gpsdata, WATCH_DISABLE, NULL);
 	gps_close(gpsdata);
 	free(gpsdata);
 	return 0;
