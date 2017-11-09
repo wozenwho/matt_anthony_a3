@@ -21,7 +21,6 @@
 --  tag info and the program will print the tag info to the screen. When a user disconnects the RFID the program will 
 --  release any handles to connected devices and be ready to connect to another RFID device when prompted. If a user selects 
 -- "quit" the the program will release any handles to connected devices and the program will terminate closing the application window. 
---
 ----------------------------------------------------------------------------------------------------------------------*/
 
 #include "header.h"
